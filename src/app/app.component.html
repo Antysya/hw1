@@ -1,0 +1,30 @@
+<h2>Список покупок</h2>
+
+   <form (ngSubmit)="addItem()" #shoppingForm="ngForm">
+     <div>
+       <label for="name">Наименование:</label>
+       <input [(ngModel)]="name" type="text" name="name"  required>
+     </div>
+
+     <div>
+       <label for="price">Цена:</label>
+       <input [(ngModel)]="price" type="number" name="price"  required>
+     </div>
+
+     <div>
+       <label for="quantity">Количество:</label>
+       <input [(ngModel)]="quantity" type="number" name="quantity"  required>
+     </div>
+
+     <button type="submit">Добавить</button>
+   </form>
+
+   <ul>
+     <li *ngFor="let item of itemList">
+       {{ item.name }} - Цена: {{ item.price }} - Количество: {{ item.quantity }}
+     </li>
+   </ul>
+
+   <p>Общая стоимость товаров: {{ totalCost() }}</p>
+
+<router-outlet></router-outlet>
